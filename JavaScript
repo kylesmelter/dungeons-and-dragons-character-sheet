@@ -1,0 +1,41 @@
+document.querySelector('button').addEventListener('click', criticalRole)
+
+function criticalRole() {
+    const choice = document.querySelector('input').value
+
+    if(choice === 'barbarian') {
+        document.querySelector('img').src = 'barbarian.webp';
+    } else if(choice === 'bard') {
+        document.querySelector('img').src = 'bard.webp';
+    } else if(choice === 'cleric') {
+        document.querySelector('img').src = 'cleric.jpg';
+    } else if(choice === 'druid') {
+        document.querySelector('img').src = 'druid.webp';
+    } else if(choice === 'fighter') {
+        document.querySelector('img').src = 'fighter.webp';
+    } else if(choice === 'monk') {
+        document.querySelector('img').src = 'monk.webp'
+    } else if(choice === 'paladin') {
+        document.querySelector('img').src = 'paladin.webp';
+    } else if(choice === 'ranger') {
+        document.querySelector('img').src = 'ranger.jpg';
+    } else if(choice === 'rogue') {
+        document.querySelector('img').src = 'rogue.webp';
+    } else if(choice === 'sorcerer') {
+        document.querySelector('img').src = 'sorcerer.webp';
+    } else if(choice === 'warlock') {
+        document.querySelector('img').src = 'warlock.jpg';
+    } else if(choice === 'wizard') {
+        document.querySelector('img').src = 'wizard.webp';
+    }
+
+    fetch(`https://www.dnd5eapi.co/api/classes/${choice}`) 
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+
+        .catch(err => {
+            console.log(`error ${err}`)
+        })
+}
